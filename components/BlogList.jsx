@@ -10,7 +10,7 @@ const BlogList = () => {
       <div className="flex justify-center gap-6 my-10">
         <button
           className={
-            menu === "All" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
+            menu === "All" ? "bg-[#9d1520] text-white py-1 px-4 rounded-md" : ""
           }
           onClick={() => setMenu("All")}
         >
@@ -20,7 +20,7 @@ const BlogList = () => {
           onClick={() => setMenu("Technology")}
           className={
             menu === "Technology"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
+              ? "bg-[#9d1520] text-white py-1 px-4 rounded-md"
               : ""
           }
         >
@@ -29,7 +29,9 @@ const BlogList = () => {
         <button
           onClick={() => setMenu("Startup")}
           className={
-            menu === "Startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
+            menu === "Startup"
+              ? "bg-[#9d1520] text-white py-1 px-4 rounded-md"
+              : ""
           }
         >
           Startup
@@ -38,7 +40,7 @@ const BlogList = () => {
           onClick={() => setMenu("Lifestyle")}
           className={
             menu === "Lifestyle"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
+              ? "bg-[#9d1520] text-white py-1 px-4 rounded-md"
               : ""
           }
         >

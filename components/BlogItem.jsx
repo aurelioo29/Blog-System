@@ -12,7 +12,7 @@ const BlogItem = ({ title, description, category, image }) => {
         height={400}
         className="border-b border-black"
       ></Image>
-      <p className="ml-5 mt-5 px-1 inline-block bg-black text-sm text-white">
+      <p className="ml-5 mt-5 px-2 py-1 inline-block bg-[#9d1520] text-sm text-white rounded-md">
         {category}
       </p>
       <div className="p-5">
