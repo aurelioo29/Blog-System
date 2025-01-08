@@ -11,7 +11,10 @@ LoadDB();
 
 export async function GET(request) {
   console.log("Blog GET called");
-  return NextResponse.json({ message: "API Working" });
+
+  const blogs = await BlogModel.find({});
+
+  return NextResponse.json({ blogs });
 }
 
 export async function POST(request) {
