@@ -12,9 +12,16 @@ LoadDB();
 export async function GET(request) {
   console.log("Blog GET called");
 
-  const blogs = await BlogModel.find({});
+  const blogId = request.nextUrl.searchParams.get("id");
 
-  return NextResponse.json({ blogs });
+  if (blogId) {
+    const blog = await BlogModel.findById(blogId);
+    return NextResponse.json(blog);
+  } else {
+    const blogs = await BlogModel.find({});
+
+    return NextResponse.json({ blogs });
+  }
 }
 
 export async function POST(request) {
