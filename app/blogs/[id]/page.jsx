@@ -4,17 +4,18 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import axios from "axios";
 
 const page = ({ params }) => {
   const [data, setData] = useState(null);
 
   const fetchData = async () => {
-    for (let i = 0; i < blog_data.length; i++) {
-      if (Number(params.id) === blog_data[i].id) {
-        setData(blog_data[i]);
-        break;
-      }
-    }
+    const res = await axios("/api/blog", {
+      params: {
+        id: params.id,
+      },
+    });
+    setData(res.data);
   };
 
   useEffect(() => {
@@ -43,7 +44,7 @@ const page = ({ params }) => {
             {data.title}
           </h1>
           <Image
-            src={data.author_img}
+            src={data.authorImg}
             width={60}
             height={60}
             alt=""
