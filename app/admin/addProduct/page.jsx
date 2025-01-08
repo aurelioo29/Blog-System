@@ -37,7 +37,7 @@ function page() {
 
     const response = await axios.post("/api/blog", formData);
     if (response.data.success) {
-      toast.success(response.data.msg);
+      toast.success(response.data.message);
       setImage(false);
       setData({
         title: "",
