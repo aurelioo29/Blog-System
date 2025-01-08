@@ -3,6 +3,8 @@ import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import BlogModel from "@/lib/models/BlogModel";
 
+const fs = require("fs");
+
 const LoadDB = async () => {
   await connectDB();
 };
@@ -51,4 +53,15 @@ export async function POST(request) {
   console.log("Blog Saved");
 
   return NextResponse.json({ success: true, message: "Blog Created" });
+}
+
+export async function DELETE(request) {
+  const blogId = await request.nextUrl.searchParams.get("id");
+  const blog = await BlogModel.findById(blogId);
+
+  fs.unlink(`./public${blog.image}`, () => {});
+  await BlogModel.findByIdAndDelete(blogId);
+  console.log("Blog Deleted");
+
+  return NextResponse.json({ success: true, message: "Blog Deleted" });
 }
